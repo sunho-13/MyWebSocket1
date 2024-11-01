@@ -42,8 +42,8 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
     }
 
     private void sendMessageSessionsInRoom(ChatMessageDto chatMessageDto, List<WebSocketSession> sessionList) throws IOException {
-//        String msg = this.objectMapper.writeValueAsString(chatMessageDto.getMessage());
-        TextMessage tm = new TextMessage(chatMessageDto.getMessage());
+        String msg = this.objectMapper.writeValueAsString(chatMessageDto.getMessage());
+        TextMessage tm = new TextMessage(msg);
         for (WebSocketSession webSocketSession : sessionList) {
             try {
                 webSocketSession.sendMessage(tm);
