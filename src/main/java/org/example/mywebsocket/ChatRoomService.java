@@ -8,7 +8,7 @@ import java.util.*;
 public class ChatRoomService {
     private final Map<String, ChatRoomDto> chatRoomDtoMap = new LinkedHashMap<>();
 
-    public ChatRoomDto insert(String roomName){
+    public ChatRoomDto insert(String roomName) {
         ChatRoomDto newRoom = ChatRoomDto.builder()
                 .roomId(UUID.randomUUID().toString())
                 .roomName(roomName).build();
@@ -16,15 +16,15 @@ public class ChatRoomService {
         return newRoom;
     }
 
-    public ChatRoomDto findByRoomId(String roomId){
+    public ChatRoomDto findByRoomId(String roomId) {
         return chatRoomDtoMap.get(roomId);
     }
 
-    public List<ChatRoomDto> findAll(){
+    public List<ChatRoomDto> findAll() {
         return chatRoomDtoMap.values().stream().toList();
     }
 
-    public void deleteByRoomId(String roomId){
+    public void deleteByRoomId(String roomId) {
         chatRoomDtoMap.remove(roomId);
     }
 }
